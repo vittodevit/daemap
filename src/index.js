@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet/dist/leaflet.js';
-import Homepage from './pages/homepage/Homepage';
+import Homepage from './pages/Homepage/Homepage';
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript

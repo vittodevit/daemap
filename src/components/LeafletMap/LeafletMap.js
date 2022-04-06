@@ -5,11 +5,10 @@ import {
   Marker, 
   Popup 
 } from 'react-leaflet'
-import './Homepage.css';
+import './LeafletMap.css';
 
-function Homepage() {
+function LeafletMap() {
   return (
-    // https://www.google.it/maps/@41.6300921,15.9133647,14.63z
     <MapContainer center={[41.6300921, 15.9133647]} zoom={14} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | 
@@ -25,4 +24,5 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default LeafletMap;
+

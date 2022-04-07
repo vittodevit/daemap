@@ -7,9 +7,9 @@ import {
 } from 'react-leaflet'
 import './LeafletMap.css';
 
-function LeafletMap() {
+function LeafletMap({centerLat, centerLon, zoomLevel}) {
   return (
-    <MapContainer center={[41.6300921, 15.9133647]} zoom={14} scrollWheelZoom={true}>
+    <MapContainer center={[centerLat, centerLon]} zoom={zoomLevel} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | 
         DaeMap by <a href="https://vitto.dev">Vittorio Lo Mele</a>'

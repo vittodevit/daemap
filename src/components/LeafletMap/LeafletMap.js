@@ -5,6 +5,7 @@ import {
   Marker, 
   Popup 
 } from 'react-leaflet'
+import { DaeMarkerGreen } from '../DaeMarkerGreen/DaeMarkerGreen';
 import './LeafletMap.css';
 
 function LeafletMap({centerLat, centerLon, zoomLevel}) {
@@ -15,9 +16,10 @@ function LeafletMap({centerLat, centerLon, zoomLevel}) {
         DaeMap by <a href="https://vitto.dev">Vittorio Lo Mele</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.505, -0.09]}>
+      <Marker position={[centerLat, centerLon]} icon={DaeMarkerGreen}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          Prova inserimento cose varie: <br />
+          aaaaaa
         </Popup>
       </Marker>
     </MapContainer>

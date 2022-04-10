@@ -1,24 +1,29 @@
 import React from 'react';
 import { 
   MapContainer, 
-  TileLayer, 
-  Marker, 
-  Popup 
+  TileLayer,
 } from 'react-leaflet'
-import { DaeMarkerGreen } from '../DaeMarkerGreen/DaeMarkerGreen';
-import InfoPopupContent from '../InfoPopupContent/InfoPopupContent';
+import DaeLocationMarker from '../DaeLocationMarker/DaeLocationMarker';
 import './LeafletMap.css';
 
 function LeafletMap({centerLat, centerLon, zoomLevel}) {
-  const dd = {
-    exactLocation: "boh da qualche parte",
-    address: "Indirizzo Di Prova",
-    houseNumber: "15",
-    postalCode: "71043",
-    city: "Manfredonia",
-    province: "Foggia",
-    operativeHours:"prova",
-    notes: "prova",
+  const dd = 
+  {
+    title: "Titolo di provaaaa",
+    latitude: "41.6300921",
+    longitude: "15.9133647",
+    h24: true,
+    data: 
+    {
+      exactLocation: "boh da qualche parte",
+      address: "Indirizzo Di Prova",
+      houseNumber: "15",
+      postalCode: "71043",
+      city: "Manfredonia",
+      province: "Foggia",
+      operativeHours:"prova",
+      notes: "prova",
+    }
   }
 
   return (
@@ -28,16 +33,7 @@ function LeafletMap({centerLat, centerLon, zoomLevel}) {
         DAEMap by <a href="https://vitto.dev">Vittorio Lo Mele</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[centerLat, centerLon]} icon={DaeMarkerGreen}>
-        <Popup>
-          <InfoPopupContent 
-            daeTitle="Titolo di prova"
-            daeLatitude={centerLat}
-            daeLongitude={centerLon}
-            daeData={dd}
-          />
-        </Popup>
-      </Marker>
+      <DaeLocationMarker daeItem={dd} />
     </MapContainer>
   );
 }

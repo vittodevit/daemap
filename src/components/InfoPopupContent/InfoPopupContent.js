@@ -1,13 +1,19 @@
 import React from "react";
 import "./InfoPopupContent.css";
 
-function InfoPopupContent({ daeTitle, daeData, daeLatitude, daeLongitude }) {
+function InfoPopupContent({ daeTitle, daeData, daeLatitude, daeLongitude, daeH24 }) {
+
+  const H24Badge = <span style={{'color': 'green'}}>H24</span>;
+  const notH24Badge = <span style={{'color': 'red'}}>NON-H24</span>;
+
   return (
     <table class="daeTable">
       <tbody>
         <tr>
           <td colspan="2" class="daeTableHeader">
-            <b>{daeTitle}</b>
+            <b>
+              {daeTitle} - {daeH24 ? H24Badge : notH24Badge}
+            </b>
           </td>
         </tr>
         <tr>

@@ -12,5 +12,5 @@ $con = new mysqli($config["DB_HOST"], $config["DB_USER"], $config["DB_PASS"], $c
 
 // Check connection
 if ($con->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $con->connect_error);
 }

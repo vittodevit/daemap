@@ -1,0 +1,56 @@
+name: CI/CD
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build --if-present
+    # - run: npm test
+    
+  update_server:
+    name: Production server deploy
+    runs-on: ubuntu-18.04
+    needs: build
+    steps:
+      - name: Set Variables
+        uses: allenevans/set-env@v2.0.0
+        with:
+          OVPN: ${{ secrets.OVPN }}
+
+      - name: Write VPN & SSH Files
+        run: |
+          mkdir ~/.ssh
+          echo "$OVPN" > ~/.ssh/vpn.ovpn
+      - name: Install OpenVPN
+        run: |
+          sudo apt install apt-transport-https
+          sudo wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub
+          sudo apt-key add openvpn-repo-pkg-key.pub
+          sudo wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-bionic.list
+          sudo apt update
+          sudo apt install openvpn3
+      - name: Start OpenVPN
+        run: openvpn3 session-start --config ~/.ssh/vpn.ovpn
+      
+      - name: Deploy stack
+        uses: appleboy/ssh-action@master
+        with:
+          host: 10.8.0.1
+          username: centos
+          key: ${{ secrets.SSH_PPK }}
+          port: 22
+          script: /opt/daeweb/deploy_dae.sh

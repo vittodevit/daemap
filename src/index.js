@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from "react-query";
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
@@ -9,10 +10,14 @@ import Homepage from './pages/Homepage/Homepage';
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
+const queryClient = new QueryClient();
+
 
 root.render(
   <React.StrictMode>
-    <Homepage />
+    <QueryClientProvider client={queryClient}>
+      <Homepage />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

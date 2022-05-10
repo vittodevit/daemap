@@ -10,15 +10,11 @@ function DaeLocationMarker({ daeKey, daeItem }) {
     <Marker
       key={dk}
       position={[daeItem.latitude, daeItem.longitude]}
-      icon={daeItem.h24 ? DaeMarkerGreen : DaeMarkerRed}
+      icon={daeItem.h24 === "1" ? DaeMarkerGreen : DaeMarkerRed}
     >
-      <Popup>
+      <Popup maxWidth="340" maxHeight="auto">
         <InfoPopupContent
-          daeTitle={daeItem.title}
-          daeLatitude={daeItem.latitude}
-          daeLongitude={daeItem.longitude}
-          daeData={daeItem.data}
-          daeH24={daeItem.h24}
+          daeId={daeItem.id}
         />
       </Popup>
     </Marker>

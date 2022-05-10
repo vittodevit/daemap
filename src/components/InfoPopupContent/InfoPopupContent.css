@@ -1,8 +1,15 @@
 .daeTable {
     border: 1px solid;
+    width: 338px;
 }
 
 .daeTableHeader {
     text-align: center;
     border: 1px solid;
+}
+
+.daeImage {
+    width: 338px !important;
+    height: auto !important;
+    margin-top: 12px !important;
 }

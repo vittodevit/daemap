@@ -14,7 +14,7 @@ function LeafletMap({centerLat, centerLon, zoomLevel}) {
   const [daeData, setDaeData] = useState([]);
 
   const fetchDaeData = async () => {
-    const dae_data = await fetch('https://xpe.mrbackslash.it/daewebdata.json');
+    const dae_data = await fetch('https://xpe.mrbackslash.it/daecms/api/get_all.php');
     const json_dae_data = await dae_data.json();  
     setDaeData(json_dae_data);
   }

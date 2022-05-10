@@ -35,6 +35,103 @@ if ($changed_url) {
 
 <body>
 
+    <div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nuovo DAE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="nscB1">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="title" class="form-label">Titolo</label>
+                                    <input type="text" class="form-control" id="title" required>
+                                </div>
+                                <div class="col">
+                                    <label for="coverImage" class="form-label">Immagine di copertina</label>
+                                    <input class="form-control" type="file" id="coverImage">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="latitude">Latitudine</label>
+                                    <input type="text" class="form-control" id="latitude" required>
+                                </div>
+                                <div class="col">
+                                    <label for="longitude">Longitudine</label>
+                                    <input type="text" class="form-control" id="longitude" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="exactLocation" class="form-label">Ubicazione esatta</label>
+                                <input type="text" class="form-control" id="exactLocation">
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="h24">H24?</label>
+                                    <select id="h24" class="form-select">
+                                        <option value="1">H24</option>
+                                        <option value="0">Personalizzato</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="operativeHours">Ore di operatività</label>
+                                    <input type="text" class="form-control" id="operativeHours">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col col-md-8">
+                                    <label for="address">Indirizzo</label>
+                                    <input type="text" class="form-control" id="address">
+                                </div>
+                                <div class="col col-md-2">
+                                    <label for="houseNumber">Civico</label>
+                                    <input type="text" class="form-control" id="houseNumber">
+                                </div>
+                                <div class="col col-md-2">
+                                    <label for="postalCode">C.A.P.</label>
+                                    <input type="text" class="form-control" id="postalCode">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="city">Città</label>
+                                    <input type="text" class="form-control" id="city">
+                                </div>
+                                <div class="col">
+                                    <label for="province">Provincia</label>
+                                    <input type="text" class="form-control" id="province">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Annotazioni</label>
+                                <textarea class="form-control" id="notes" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-octagon"></i>
+                        Annulla
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="createCustomerAJAX()">
+                        <i class="bi bi-plus-square"></i>
+                        Crea
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="deleteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -76,7 +173,9 @@ if ($changed_url) {
                     Aggiorna Lista
                 </button>
                 <span class="spacer"></span>
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success"
+                data-bs-toggle="modal" data-bs-target="#createModal"
+                >
                     <i class="bi bi-plus-square"></i>
                     Nuovo DAE
                 </button>

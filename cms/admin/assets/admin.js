@@ -158,3 +158,15 @@ $(document).ready(function () {
 $("#btn-aggiorna").click(function () {
   tabellaAJAX();
 });
+
+//listener aggiornamento field h24
+$('#h24').on('change', function() {
+  console.log($("#h24").val());
+  if($("#h24").val() === "1"){
+    $( "#operativeHours" ).prop( "disabled", true );
+  }else{
+    $( "#operativeHours" ).prop( "disabled", false );
+  }
+});
+
+$( "#operativeHours" ).prop( "disabled", true );

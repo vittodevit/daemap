@@ -22,18 +22,16 @@ function InfoPopupContent({ daeId }) {
 
   let daeimg;
 
-  if(daeDetails.imageId !== "" && daeDetails.imageId !== undefined){
+  if (daeDetails.imageId !== "" && daeDetails.imageId !== undefined) {
     daeimg = (
       <img
-      src={imgBpath + daeDetails.imageId + ".webp"}
-      alt={"Foto dae " + daeDetails.title}
-      className="daeImage"
+        src={imgBpath + daeDetails.imageId + ".webp"}
+        alt={"Foto dae " + daeDetails.title}
+        className="daeImage"
       ></img>
-    )
-  }
-  else
-  {
-    daeimg = (<div></div>)
+    );
+  } else {
+    daeimg = <div></div>;
   }
 
   return (
@@ -48,42 +46,63 @@ function InfoPopupContent({ daeId }) {
               </b>
             </td>
           </tr>
-          <tr>
-            <td>Collocazione precisa</td>
-            <td>
-              <b>{daeDetails.exactLocation}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Indirizzo</td>
-            <td>
-              <b>{daeDetails.address}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Numero civico</td>
-            <td>
-              <b>{daeDetails.houseNumber}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>CAP</td>
-            <td>
-              <b>{daeDetails.postalCode}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Comune</td>
-            <td>
-              <b>{daeDetails.city}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Provincia</td>
-            <td>
-              <b>{daeDetails.province}</b>
-            </td>
-          </tr>
+
+          {(daeDetails.exactLocation !== null ||
+            daeDetails.exactLocation !== "") && (
+            <tr>
+              <td>Collocazione precisa</td>
+              <td>
+                <b>{daeDetails.exactLocation}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.address !== null || daeDetails.address !== "") && (
+            <tr>
+              <td>Indirizzo</td>
+              <td>
+                <b>{daeDetails.address}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.houseNumber !== null ||
+            daeDetails.houseNumber !== "") && (
+            <tr>
+              <td>Numero civico</td>
+              <td>
+                <b>{daeDetails.houseNumber}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.postalCode !== null || daeDetails.postalCode !== "") && (
+            <tr>
+              <td>CAP</td>
+              <td>
+                <b>{daeDetails.postalCode}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.city !== null || daeDetails.city !== "") && (
+            <tr>
+              <td>Comune</td>
+              <td>
+                <b>{daeDetails.city}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.province !== null || daeDetails.province !== "") && (
+            <tr>
+              <td>Provincia</td>
+              <td>
+                <b>{daeDetails.province}</b>
+              </td>
+            </tr>
+          )}
+
           <tr>
             <td>Coordinate (lat,lon)</td>
             <td>
@@ -92,18 +111,27 @@ function InfoPopupContent({ daeId }) {
               </b>
             </td>
           </tr>
-          <tr>
-            <td>Orario Operatività</td>
-            <td>
-              <b>{daeDetails.operativeHours}</b>
-            </td>
-          </tr>
-          <tr>
-            <td>Annotazioni</td>
-            <td>
-              <b>{daeDetails.notes}</b>
-            </td>
-          </tr>
+
+          {(daeDetails.operativeHours !== null ||
+            daeDetails.operativeHours !== "") && (
+            <tr>
+              <td>Orario Operatività</td>
+              <td>
+                <b>{daeDetails.operativeHours}</b>
+              </td>
+            </tr>
+          )}
+
+          {(daeDetails.operativeHours !== null ||
+            daeDetails.operativeHours !== "") && (
+            <tr>
+              <td>Annotazioni</td>
+              <td>
+                <b>{daeDetails.notes}</b>
+              </td>
+            </tr>
+          )}
+          
         </tbody>
       </table>
       {daeimg}

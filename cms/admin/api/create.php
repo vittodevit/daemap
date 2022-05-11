@@ -96,7 +96,8 @@ $_notes = (
     isset($_POST["notes"]) && !empty($_POST["notes"]) ? htmlspecialchars($_POST["notes"]) : null
 );
 
-if (isset($_FILES["coverImage"]["name"]))
+if (isset($_FILES["coverImage"]["name"]) 
+&& isset($_FILES["coverImage"]["name"]) !== "")
 {
     $target_dir = "../../api/images/";
 

@@ -2,6 +2,7 @@ let dt = null;
 
 // caricamento dati nel modal
 var deleteModal = document.getElementById('deleteModal');
+var createModal = document.getElementById('createModal');
 deleteModal.addEventListener('show.bs.modal', function(event) {
     var button = event.relatedTarget;
     var modalContent = document.getElementById('deleteModalBody');
@@ -41,6 +42,25 @@ function deleteAJAX(uuid){
       // mostra notifica toast rossa con errore
       error: function(data) {
           toastr.error(data.responseJSON.payload);
+      }
+  });
+}
+
+function createAJAX() {
+  $.ajax({
+      type: "POST",
+      url: './api/create.php',
+      data: new FormData($('#nscB1')[0]), // The form with the file inputs.
+      processData: false,
+      contentType: false,
+      success: function (data) {
+          tabellaAJAX();
+          $('#createModal').modal('hide');
+          $('#nscB1')[0].reset();
+          toastr.success("DAE creato correttamente!");
+      },
+      error: function (data) {
+          toastr.error(data.responseText);
       }
   });
 }

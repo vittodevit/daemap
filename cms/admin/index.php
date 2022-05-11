@@ -43,77 +43,77 @@ if ($changed_url) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="nscB1">
-                        <form>
+                    <div>
+                        <form id="nscB1">
                             <div class="row">
                                 <div class="col">
                                     <label for="title" class="form-label">Titolo</label>
-                                    <input type="text" class="form-control" id="title" required>
+                                    <input type="text" class="form-control" id="title" name="title" required>
                                 </div>
                                 <div class="col">
                                     <label for="coverImage" class="form-label">Immagine di copertina</label>
-                                    <input class="form-control" type="file" id="coverImage">
+                                    <input class="form-control" type="file" id="coverImage" name="coverImage">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
                                     <label for="latitude">Latitudine</label>
-                                    <input type="text" class="form-control" id="latitude" required>
+                                    <input type="text" class="form-control" id="latitude" name="latitude" required>
                                 </div>
                                 <div class="col">
                                     <label for="longitude">Longitudine</label>
-                                    <input type="text" class="form-control" id="longitude" required>
+                                    <input type="text" class="form-control" id="longitude" name="longitude" required>
                                 </div>
                             </div>
                             <br>
                             <div class="mb-3">
                                 <label for="exactLocation" class="form-label">Ubicazione esatta</label>
-                                <input type="text" class="form-control" id="exactLocation">
+                                <input type="text" class="form-control" id="exactLocation" name="exactLocation">
                             </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="h24">H24?</label>
-                                    <select id="h24" class="form-select">
+                                    <select id="h24" name="h24" class="form-select">
                                         <option value="1">H24</option>
                                         <option value="0">Personalizzato</option>
                                     </select>
                                 </div>
                                 <div class="col">
                                     <label for="operativeHours">Ore di operatività</label>
-                                    <input type="text" class="form-control" id="operativeHours">
+                                    <input type="text" class="form-control" id="operativeHours" name="operativeHours">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col col-md-8">
                                     <label for="address">Indirizzo</label>
-                                    <input type="text" class="form-control" id="address">
+                                    <input type="text" class="form-control" id="address" name="address">
                                 </div>
                                 <div class="col col-md-2">
                                     <label for="houseNumber">Civico</label>
-                                    <input type="text" class="form-control" id="houseNumber">
+                                    <input type="text" class="form-control" id="houseNumber" name="houseNumber">
                                 </div>
                                 <div class="col col-md-2">
                                     <label for="postalCode">C.A.P.</label>
-                                    <input type="text" class="form-control" id="postalCode">
+                                    <input type="text" class="form-control" id="postalCode" name="postalCode">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
                                     <label for="city">Città</label>
-                                    <input type="text" class="form-control" id="city">
+                                    <input type="text" class="form-control" id="city" name="city">
                                 </div>
                                 <div class="col">
                                     <label for="province">Provincia</label>
-                                    <input type="text" class="form-control" id="province">
+                                    <input type="text" class="form-control" id="province" name="province">
                                 </div>
                             </div>
                             <br>
                             <div class="mb-3">
                                 <label for="notes" class="form-label">Annotazioni</label>
-                                <textarea class="form-control" id="notes" rows="3"></textarea>
+                                <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                             </div>
                         </form>
                     </div>
@@ -123,7 +123,7 @@ if ($changed_url) {
                         <i class="bi bi-x-octagon"></i>
                         Annulla
                     </button>
-                    <button type="button" class="btn btn-success" onclick="createCustomerAJAX()">
+                    <button type="button" class="btn btn-success" onclick="createAJAX()">
                         <i class="bi bi-plus-square"></i>
                         Crea
                     </button>

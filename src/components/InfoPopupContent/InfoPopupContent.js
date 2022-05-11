@@ -47,7 +47,7 @@ function InfoPopupContent({ daeId }) {
             </td>
           </tr>
 
-          {(daeDetails.exactLocation !== null ||
+          {(daeDetails.exactLocation !== null &&
             daeDetails.exactLocation !== "") && (
             <tr>
               <td>Collocazione precisa</td>
@@ -57,7 +57,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.address !== null || daeDetails.address !== "") && (
+          {(daeDetails.address !== null && daeDetails.address !== "") && (
             <tr>
               <td>Indirizzo</td>
               <td>
@@ -66,7 +66,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.houseNumber !== null ||
+          {(daeDetails.houseNumber !== null &&
             daeDetails.houseNumber !== "") && (
             <tr>
               <td>Numero civico</td>
@@ -76,7 +76,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.postalCode !== null || daeDetails.postalCode !== "") && (
+          {(daeDetails.postalCode !== null && daeDetails.postalCode !== "") && (
             <tr>
               <td>CAP</td>
               <td>
@@ -85,7 +85,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.city !== null || daeDetails.city !== "") && (
+          {(daeDetails.city !== null && daeDetails.city !== "") && (
             <tr>
               <td>Comune</td>
               <td>
@@ -94,7 +94,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.province !== null || daeDetails.province !== "") && (
+          {(daeDetails.province !== null && daeDetails.province !== "") && (
             <tr>
               <td>Provincia</td>
               <td>
@@ -112,7 +112,7 @@ function InfoPopupContent({ daeId }) {
             </td>
           </tr>
 
-          {(daeDetails.operativeHours !== null ||
+          {(daeDetails.operativeHours !== null &&
             daeDetails.operativeHours !== "") && (
             <tr>
               <td>Orario Operatività</td>
@@ -122,7 +122,7 @@ function InfoPopupContent({ daeId }) {
             </tr>
           )}
 
-          {(daeDetails.operativeHours !== null ||
+          {(daeDetails.operativeHours !== null &&
             daeDetails.operativeHours !== "") && (
             <tr>
               <td>Annotazioni</td>

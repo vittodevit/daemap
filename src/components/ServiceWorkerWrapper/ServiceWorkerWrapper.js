@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { Snackbar, Button } from '@material-ui/core';
-import * as serviceWorker from '../serviceWorker';
+import { Snackbar, Button } from '@mui/material';
+import * as serviceWorker from '../../serviceWorkerRegistration';
 
 const ServiceWorkerWrapper = () => {
   const [showReload, setShowReload] = React.useState(false);
-  const [waitingWorker, setWaitingWorker] = React.useState<ServiceWorker | null>(null);
+  const [waitingWorker, setWaitingWorker] = React.useState(ServiceWorker | null);
 
   const onSWUpdate = (registration) => {
     setShowReload(true);

@@ -97,7 +97,7 @@ $_notes = (
 );
 
 if (isset($_FILES["coverImage"]["name"]) 
-&& isset($_FILES["coverImage"]["name"]) !== "")
+&& $_FILES["coverImage"]["name"] !== "")
 {
     $target_dir = "../../api/images/";
 
